@@ -127,6 +127,7 @@ def main(command_line=None):
         filename = pathlib.Path.home()/args.filename
     else:
         filename = pathlib.Path(args.filename)
+    logging.warning(f"выбран путь {filename}")
 
     # Обработка ошибки если файл не существует
     try:
@@ -140,6 +141,7 @@ def main(command_line=None):
         student = get_student(args.name, args.group, args.average_estimation)
         students.append(student)
         is_dirty = True
+        logging.warning(f"студент успешно добавлен")
     elif args.command == "list":
         show_list(students)
     else:
